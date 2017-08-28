@@ -1,0 +1,31 @@
+namespace Assignment6.Repository.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Validation : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.Emp1",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        Email = c.String(nullable: false),
+                        Phone = c.Long(nullable: false),
+                        MaritalStatus = c.Boolean(nullable: false),
+                        State = c.String(nullable: false),
+                        City = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+        }
+        
+        public override void Down()
+        {
+            DropTable("dbo.Emp1");
+        }
+    }
+}
